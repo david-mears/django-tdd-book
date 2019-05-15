@@ -1,5 +1,6 @@
 from selenium import webdriver
 import unittest
+import time
 
 class NewVisitorTest(unittest.TestCase):
 
@@ -17,8 +18,7 @@ class NewVisitorTest(unittest.TestCase):
         # She notices the page title and header mention to-do lists
         self.assertIn('To-Do', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text # This find method is provided by selenium
-        print('header_text' + ' ' + header_text)
-        self.assertIn('To Do', header_text)
+        self.assertIn('To-Do', header_text)
         # She is invited to enter a to-do item straight away
         inputbox = self.browser.find_element_by_id('id_new_item')  
         self.assertEqual(
