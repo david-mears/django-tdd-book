@@ -24,7 +24,7 @@ class NewVisitorTest(LiveServerTestCase):
                 self.assertIn(row_text, [row.text for row in rows])
                 return
             except (WebDriverException, AssertionError) as e:
-                if (time.time() - start_time) > start_time:
+                if (time.time() - start_time) > MAX_WAIT:
                     raise e
                 else:
                     time.sleep(0.5)
